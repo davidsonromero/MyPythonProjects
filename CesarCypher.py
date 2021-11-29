@@ -93,7 +93,7 @@ def script():
         restart()
 
     transform = input("Escolha o número de rotação (1-48)\n")
-    if(transform > 48 or transform < 1):
+    if(int(transform) > 48 or int(transform) < 1):
         print("Número inválido!\n")
         restart()
     else:
