@@ -1,11 +1,3 @@
-import sys
-def restart():
-    restart = input("\n\nDeseja reiniciar o programa (S/N)?\n")
-    if(restart == "S" or restart == "s"):
-        script()
-    else:
-        sys.exit()
-
 def checkIndex(a, b):
     count = 0
     for x in b:
@@ -81,27 +73,33 @@ def convert(text, transform, option):
 
     return("\n" + convertedText)
 
-def script():
-    print ("Bem-vindo! Este programa serve para encriptar ou descriptar textos com a Cifra de César.\n\n")
+def ler_dados(mensagem, valores_validos, conversao=None):
+    msg_erro = f'Valor inválido, deve ser um desses: {", ".join(map(str, valores_validos))}'
+    while True:
+        try:
+            valor = input(mensagem)
+            if conversao is not None:
+                valor = conversao(valor)
+            if valor in valores_validos:
+                return valor
+            else:
+                print(msg_erro)
+        except:
+            print(msg_erro)
+
+print ("Bem-vindo! Este programa serve para encriptar ou descriptar textos com a Cifra de César.\n\n")
+
+while True:
     text = input("Escreva o texto para encriptar ou descriptar:\n")
 
-    option = input("Escolha uma opção:\n\n1-Encriptar o texto\n\n2-Descriptar o texto\n")
-    if(option == "1" or option == "2"): 
-        option = int(option)
-    else:
-        print("Opção inválida!\n")
-        restart()
+    option = ler_dados("Escolha uma opção:\n\n1-Encriptar o texto\n\n2-Descriptar o texto\n> ", [1, 2], int)
 
-    transform = input("Escolha o número de rotação (1-48)\n")
-    if(transform.isalpha() or transform.isspace() or int(transform) > 48 or int(transform) < 1):
-        print("Número inválido!\n")
-        restart()
-    else:
-        transform = int(transform)
+    transform = ler_dados("Escolha o número de rotação (1-48): ", range(1, 49), int)
 
-    result = convert(text, transform, option)
+    print(f'resultado da conversão: {convert(text, transform, option)}')
 
-    return result
+    reiniciar = ler_dados('\n\nDeseja reiniciar o programa (S/N)?\n', ['s', 'n'], str.lower)
+    if reiniciar != 's':
+        break
 
-print(script())
-a = input("\n \nPressione Enter para finalizar...")
+    #Créditos pela ajuda: https://pt.stackoverflow.com/users/112052 Valeu, Mano!
