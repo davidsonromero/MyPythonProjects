@@ -1,6 +1,6 @@
 import sys
 def restart():
-    restart = input("\n\nDeseja reiniciar o programa (S/N)?")
+    restart = input("\n\nDeseja reiniciar o programa (S/N)?\n")
     if(restart == "S" or restart == "s"):
         script()
     else:
