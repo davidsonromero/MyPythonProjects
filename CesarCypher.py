@@ -74,7 +74,7 @@ def convert(text, transform, option):
     return("\n" + convertedText)
 
 def ler_dados(mensagem, valores_validos, conversao=None):
-    msg_erro = f'Valor inválido, deve ser um desses: {", ".join(map(str, valores_validos))}'
+    msg_erro = f'Valor inválido, deve ser um desses: {", ".join(map(str, valores_validos))}\n'
     while True:
         try:
             valor = input(mensagem)
@@ -96,10 +96,10 @@ while True:
 
     transform = ler_dados("Escolha o número de rotação (1-48): ", range(1, 49), int)
 
-    print(f'resultado da conversão: {convert(text, transform, option)}')
+    print(f'\nResultado da conversão:\n\n {convert(text, transform, option)}')
 
     reiniciar = ler_dados('\n\nDeseja reiniciar o programa (S/N)?\n', ['s', 'n'], str.lower)
-    if reiniciar != 's':
+    if reiniciar == 'n':
         break
 
-    #Créditos pela ajuda: https://pt.stackoverflow.com/users/112052 Valeu, Mano!
+#Créditos pela ajuda: https://pt.stackoverflow.com/users/112052 Valeu, Mano!
