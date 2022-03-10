@@ -118,7 +118,7 @@ _____   ____  _____   ______  ________  ____  _____  ________  ______      _____
  
  """)
  
-    text = input("\n\nDigite o texto a ser criptografado: ")
+    text = input("\n\nDigite o texto a ser processado: ")
     option = readOption()
     password = input("Digite a senha (apenas letras): ")
     control = 0
