@@ -18,16 +18,16 @@ def encripta(letter, transform):
     #se for letra maiúscula:
     elif(letter.isupper()):
         index = checkIndex(letter, upperAlphabetWithAccents)
-        if(transform + index > 48):
-            rotate = transform + index - 49
+        if(transform + index > 50):
+            rotate = transform + index - 51
         else:
             rotate = index + transform
         transformedText += upperAlphabetWithAccents[rotate]
     #se for letra minúscula:
     elif(letter.islower()):
         index = checkIndex(letter, alphabetWithAccents)
-        if(transform + index > 48):
-            rotate = transform + index - 49
+        if(transform + index > 50):
+            rotate = transform + index - 51
         else:
             rotate = index + transform
         transformedText += alphabetWithAccents[rotate]
@@ -41,7 +41,7 @@ def descripta(letter, transform):
     elif(letter.isupper()):
         index = checkIndex(letter, upperAlphabetWithAccents)
         if(index - transform < 0):
-            rotate = index - transform + 49
+            rotate = index - transform + 50
         else:
             rotate = index - transform
         transformedText += upperAlphabetWithAccents[rotate]
@@ -49,7 +49,7 @@ def descripta(letter, transform):
     elif(letter.islower()):
         index = checkIndex(letter, alphabetWithAccents)
         if(index - transform < 0):
-            rotate = index - transform + 49
+            rotate = index - transform + 50
         else:
             rotate = index - transform
         transformedText += alphabetWithAccents[rotate]
