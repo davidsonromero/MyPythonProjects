@@ -41,7 +41,7 @@ def descripta(letter, transform):
     elif(letter.isupper()):
         index = checkIndex(letter, upperAlphabetWithAccents)
         if(index - transform < 0):
-            rotate = index - transform + 50
+            rotate = index - transform + 51
         else:
             rotate = index - transform
         transformedText += upperAlphabetWithAccents[rotate]
@@ -49,7 +49,7 @@ def descripta(letter, transform):
     elif(letter.islower()):
         index = checkIndex(letter, alphabetWithAccents)
         if(index - transform < 0):
-            rotate = index - transform + 50
+            rotate = index - transform + 51
         else:
             rotate = index - transform
         transformedText += alphabetWithAccents[rotate]
